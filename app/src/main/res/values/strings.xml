@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">memory lane</string>
+
+    <string-array name="moods">
+        <item
+            background="@android:color/transparent"
+            >happy</item>
+        <item>annoyed</item>
+        <item>excited</item>
+        <item>frustrated</item>
+        <item>optimistic</item>
+        <item>sad</item>
+        <item>proud</item>
+        <item>confused</item>
+    </string-array>
+
 </resources>

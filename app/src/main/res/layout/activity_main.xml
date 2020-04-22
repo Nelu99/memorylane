@@ -5,10 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/ic_launcher_background">
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/toolbar_main"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorHeight="0dp"
+        app:tabGravity="center"
+        app:tabBackground="@drawable/tab"
+        android:id="@+id/tab_layout_main"
+        app:tabIndicator="@null"
+        app:tabPaddingStart="10dp"
+        app:tabPaddingEnd="10dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager"/>
+
 </LinearLayout>

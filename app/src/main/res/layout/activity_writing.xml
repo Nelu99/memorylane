@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".WritingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ToolbarColorBackArrow"
+        android:layout_alignParentTop="true"
+        android:id="@+id/toolbar_writing"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/logo_writing"
+        android:layout_below="@id/toolbar_writing"
+        android:contentDescription="logo_writing" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@id/writing_pager2"
+        android:id="@+id/writing_pager1"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@id/writing_pager3"
+        android:id="@+id/writing_pager2"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/writing_pager3"/>
+
+</RelativeLayout>

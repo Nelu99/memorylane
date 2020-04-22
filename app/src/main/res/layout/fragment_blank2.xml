@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/blank2_text"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/white"
+        android:fontFamily="casual"
+        android:text="tap to start writing"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:textSize="26sp"/>
+
+    <ImageButton
+        android:id="@+id/blank2_button"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/logo"
+        android:layout_below="@+id/blank2_text"
+        android:onClick="openWritingActivity"
+        android:layout_marginBottom="?attr/actionBarSize"
+        />
+
+    <ImageButton
+        android:id="@+id/blank2_button_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/logo_photo"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        />
+
+</RelativeLayout>
