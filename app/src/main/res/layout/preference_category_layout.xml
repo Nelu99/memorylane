@@ -12,11 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/lightyellow"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="25dp"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:singleLine="true"
         android:textSize="20sp"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="25dp" />
 
 </LinearLayout>

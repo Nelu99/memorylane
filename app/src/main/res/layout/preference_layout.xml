@@ -15,12 +15,12 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="25dp"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal"
             android:singleLine="true"
             android:textSize="20sp"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="25dp" />
 
         <TextView
             android:id="@android:id/summary"
@@ -29,21 +29,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="25dp"
             android:maxLines="4"
             android:textSize="16sp"
             android:layout_alignLeft="@android:id/title"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="25dp" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@android:id/widget_frame"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="25dp"
         android:gravity="center"
         android:minWidth="48dp"
         android:orientation="vertical"
-        android:layout_marginRight="50dp" />
+        android:layout_marginRight="25dp" />
 
 </LinearLayout>

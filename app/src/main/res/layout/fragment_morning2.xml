@@ -9,6 +9,9 @@
     android:paddingRight="24dp"
     android:paddingLeft="24dp"
     android:paddingBottom="12dp"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:focusable="true"
     tools:context=".TabFragments.MorningFragment2">
 
     <EditText
@@ -56,6 +59,7 @@
             android:layout_height="45dp"
             android:background="@drawable/submit_logo"
             android:layout_gravity="center"
+            android:onClick="submitData"
             android:layout_marginLeft="24dp"
             android:layout_marginStart="24dp"/>
 

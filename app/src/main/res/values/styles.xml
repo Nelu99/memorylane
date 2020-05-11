@@ -1,7 +1,10 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="dialogTheme">@style/AlertDialogTheme</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="alertDialogStyle">@style/AlertDialogStyle</item>
+        <item name="dialogPreferenceStyle">@style/AlertDialogStyle</item>
         <item name="colorControlActivated">@color/lightyellow</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -21,6 +24,24 @@
 
     <style name="ToolbarColorBackArrow" parent="AppTheme">
         <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textColorPrimary">@color/darkyellow</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textSize">32sp</item>
+        <item name="colorAccent">@color/lightyellow</item>
+        <item name="android:textColor">@color/darkyellow</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="AlertDialog.AppCompat">
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textColorPrimary">@color/darkyellow</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textSize">32sp</item>
+        <item name="colorAccent">@color/lightyellow</item>
+        <item name="android:textColor">@color/darkyellow</item>
     </style>
 
 </resources>

@@ -8,8 +8,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.memorylane.TabFragments.AfternoonFragment1;
 import com.example.memorylane.TabFragments.AfternoonFragment2;
@@ -17,6 +22,9 @@ import com.example.memorylane.TabFragments.EveningFragment1;
 import com.example.memorylane.TabFragments.EveningFragment2;
 import com.example.memorylane.TabFragments.MorningFragment1;
 import com.example.memorylane.TabFragments.MorningFragment2;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class WritingActivity extends AppCompatActivity {
 
@@ -34,12 +42,15 @@ public class WritingActivity extends AppCompatActivity {
     EveningFragment1 eveningFragment1;
     EveningFragment2 eveningFragment2;
 
+    static DatabaseHelper myDb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing);
         setupToolbar();
         startFragment();
+        myDb = new DatabaseHelper(this);
     }
 
     @Override
@@ -49,6 +60,7 @@ public class WritingActivity extends AppCompatActivity {
     }
 
     public void revertViewPagers(int base) {
+        setDataFromDB();
         switch(base) {
             case 1:
                 if(viewPager2.getCurrentItem() != 0)
@@ -71,6 +83,29 @@ public class WritingActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    private void setDataFromDB(){
+        Cursor res = myDb.getDataById(getDate());
+        while (res.moveToNext()) {
+            MorningFragment2.editText.setText(res.getString(4),
+                    TextView.BufferType.EDITABLE);
+            setSpinnerText(MorningFragment2.spinner, res.getString(5));
+            AfternoonFragment2.editText.setText(res.getString(6),
+                    TextView.BufferType.EDITABLE);
+            setSpinnerText(AfternoonFragment2.spinner, res.getString(7));
+            EveningFragment2.editText.setText(res.getString(8),
+                    TextView.BufferType.EDITABLE);
+            setSpinnerText(EveningFragment2.spinner, res.getString(9));
+        }
+        res.close();
+    }
+
+    private void setSpinnerText(Spinner spin, String text)
+    {
+        for(int i= 0; i < spin.getAdapter().getCount(); i++)
+            if(spin.getAdapter().getItem(i).toString().contains(text))
+                spin.setSelection(i);
     }
 
     private void setupToolbar(){
@@ -167,6 +202,42 @@ public class WritingActivity extends AppCompatActivity {
         public int getCount() {
             return fragmentNames.length;
         }
+    }
+
+    private String getDate() {
+        String pattern = "dd MMM yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        return simpleDateFormat.format(new Date());
+    }
+
+    public void submitData(View view) {
+        boolean isInserted ;
+        String date = getDate();
+        String[] date_parts = date.split(" ");
+        if(!myDb.isDayRegistered(date))
+            isInserted = myDb.insertData(date,date_parts[0],date_parts[1],date_parts[2],
+                    MorningFragment2.editText.getText().toString(),
+                    MorningFragment2.spinner.getSelectedItem().toString(),
+                    AfternoonFragment2.editText.getText().toString(),
+                    AfternoonFragment2.spinner.getSelectedItem().toString(),
+                    EveningFragment2.editText.getText().toString(),
+                    EveningFragment2.spinner.getSelectedItem().toString());
+        else
+            isInserted = myDb.updateData(date,date_parts[0],date_parts[1],date_parts[2],
+                    MorningFragment2.editText.getText().toString(),
+                    MorningFragment2.spinner.getSelectedItem().toString(),
+                    AfternoonFragment2.editText.getText().toString(),
+                    AfternoonFragment2.spinner.getSelectedItem().toString(),
+                    EveningFragment2.editText.getText().toString(),
+                    EveningFragment2.spinner.getSelectedItem().toString());
+
+        viewPager1.setCurrentItem(0 ,true);
+        viewPager2.setCurrentItem(0 ,true);
+        viewPager3.setCurrentItem(0 ,true);
+        if(isInserted)
+            Toast.makeText(this,"Updated your data",Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this,"Data could not be updated",Toast.LENGTH_SHORT).show();
     }
 
 }

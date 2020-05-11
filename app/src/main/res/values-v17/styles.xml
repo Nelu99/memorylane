@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textColorPrimary">@color/darkyellow</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textSize">32sp</item>
+        <item name="colorAccent">@color/lightyellow</item>
+        <item name="android:textColor">@color/darkyellow</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="AlertDialog.AppCompat">
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textColorPrimary">@color/darkyellow</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textSize">32sp</item>
+        <item name="colorAccent">@color/lightyellow</item>
+        <item name="android:textColor">@color/darkyellow</item>
+    </style>
+</resources>
