@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String[] MONTHS =
             {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     public static final String MORNING_TEXT = "I started the day feeling ";
-    public static final String AFTERNOON_TEXT = "The events of this afternoon make me really ";
+    public static final String AFTERNOON_TEXT = "The events of this afternoon made me really ";
     public static final String EVENING_TEXT = "At the end of the day I'm ";
 
     private ViewPager viewPager;
