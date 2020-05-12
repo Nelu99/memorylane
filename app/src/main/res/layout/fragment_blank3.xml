@@ -27,6 +27,7 @@
         android:singleLine="true"
         android:layout_below="@id/user_logo"
         android:hint="my name"
+        android:inputType="textFilter"
         android:textAlignment="center"
         android:textColorHint="@color/yellow"
         android:textSize="26sp"
