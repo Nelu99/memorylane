@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String[] MONTHS =
             {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    public static final String MORNING_TEXT = "I started the day feeling ";
+    public static final String AFTERNOON_TEXT = "The events of this afternoon make me really ";
+    public static final String EVENING_TEXT = "At the end of the day I'm ";
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -82,8 +85,14 @@ public class MainActivity extends AppCompatActivity {
         showData(getDate());
     }
 
+    public void showAllData(View view) { showData("all"); }
+
     private void showData(String id) {
-        Cursor res = myDb.getDataById(id);
+        Cursor res;
+        if (id.equals("all"))
+            res = myDb.getAllData();
+        else
+            res = myDb.getDataById(id);
         if(res.getCount() == 0) {
             showMessage("Nothing found");
             return;
@@ -91,13 +100,16 @@ public class MainActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
-            buffer.append("\nDate : "+ res.getString(0)+"\n\n");
-            buffer.append("Morning\n"+ res.getString(4)+"\n");
-            buffer.append("Mood : "+ res.getString(5)+"\n\n");
-            buffer.append("Afternoon\n"+ res.getString(6)+"\n");
-            buffer.append("Mood : "+ res.getString(7)+"\n\n");
-            buffer.append("Evening\n"+ res.getString(8)+"\n");
-            buffer.append("Mood : "+ res.getString(9)+"\n");
+            buffer.append("\nDate : " + res.getString(0) + "\n\n");
+            if(!res.getString(4).equals(""))
+                buffer.append("Morning\n" + MORNING_TEXT + res.getString(5) +
+                        ". " + res.getString(4) + "\n\n");
+            if(!res.getString(6).equals(""))
+                buffer.append("Afternoon\n" + res.getString(6)
+                        + " " + AFTERNOON_TEXT + res.getString(7) + ".\n\n");
+            if(!res.getString(8).equals(""))
+                buffer.append("Evening\n" + EVENING_TEXT + res.getString(9)
+                        + ". " + res.getString(8)+"\n\n");
         }
         res.close();
         showMessage(buffer.toString());
