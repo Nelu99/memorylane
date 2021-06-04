@@ -1,8 +1,5 @@
 # memorylane
-Proiect P.D.M. 
- 
-Membrii echipei: Andrada Vonica, Nelu Maciuca; 
- 
+
 Titlul proiectului: memory lane; 
  
 Scopul proiectului: crearea unui jurnal digital care adreseaza si transforma intamplari trecute sub forma unei biografii; 
