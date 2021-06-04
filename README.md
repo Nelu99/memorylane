@@ -1,11 +1,9 @@
 # memorylane
 
-Titlul proiectului: memory lane; 
+Title: memory lane; 
  
-Scopul proiectului: crearea unui jurnal digital care adreseaza si transforma intamplari trecute sub forma unei biografii; 
+Goal: creating a digital journal that interacts dinamically with the user by asking relevant and well-timed questions, manipulating the answers and determining emotions. This is then used to generate a Biography / Journal page each day and displaying the result on a Monthly / Yearly basis;
  
-Utilizatori: aplicatia este predestinata acelui grup de utilizatori care sunt pasionati de literatura,  fotografie si amintiri; 
+Targeted users: The app targets a group of users that are passionate about literature, journaling, photography and memory keeping;
  
-Limbaj / mediu de programare: Java+Android Studio+MySql; 
- 
-Functionalitati propuse:  ● Prelucreaza raspunsurile la diferite intrebari pe care aplicatia le adreseaza utilizatorului sub forma de casute pop-up la ore prestabilite; ● Optional utilizatorul poate incarca o imagine in momentul trimiterii unui raspuns; ● Preia zilnic informatiile salvate intr-o baza de date locala si le transforma intr-un capitol din viata ta ; ● Distribuirea saptamanii/lunii/anului in cadrul mai multor retele de socializare; 
+Technologies: Android Studio + XML + Java + MySql; 
